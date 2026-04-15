@@ -158,7 +158,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      padding: 4rem 2rem 4.5rem;
+      padding: clamp(2rem, 4vh, 3.5rem) 2rem clamp(2rem, 4vh, 3.5rem);
     }
     .hero-bg-deco {
       position: absolute;
@@ -195,7 +195,8 @@
 
     .hero-logo-img {
       width: 100%;
-      max-width: 440px;
+      max-width: 400px;
+      max-height: 38vh;
       height: auto;
       display: block;
       object-fit: contain;
@@ -228,7 +229,7 @@
       width: 80px;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--gold), transparent);
-      margin: 1.25rem auto 1rem;
+      margin: clamp(0.75rem, 2vh, 1.25rem) auto clamp(0.6rem, 1.5vh, 1rem);
       animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.9s;
       opacity: 0;
     }
@@ -248,12 +249,12 @@
       font-weight: 400;
       letter-spacing: 0.12em;
       color: rgba(255,255,255,0.6);
-      margin-top: 0.5rem;
+      margin-top: clamp(0.3rem, 1vh, 0.5rem);
       animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 1.25s;
       opacity: 0;
     }
     .hero-cta {
-      margin-top: 2rem;
+      margin-top: clamp(1.25rem, 3vh, 2rem);
       display: inline-block;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
@@ -290,7 +291,7 @@
 
     .hero-scroll {
       position: absolute;
-      bottom: 1.5rem;
+      bottom: 0.75rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
@@ -500,7 +501,7 @@
 
     .inspiration-list {
       list-style: none;
-      margin-top: 2rem;
+      margin-top: clamp(1.25rem, 3vh, 2rem);
     }
     .inspiration-list li {
       font-family: 'IBM Plex Mono', monospace;
@@ -648,14 +649,17 @@
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
       margin-top: 3rem;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
+      .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
       .cards-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 400px) {
       .cards-grid { grid-template-columns: 1fr; }
     }
 
@@ -892,7 +896,7 @@
 
       .sculpture-img { max-width: 260px; }
 
-      .evening-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
       .evening-card { padding: 1.25rem 1rem 1rem; }
 
       .details-table { font-size: 0.72rem; }
@@ -905,7 +909,7 @@
 
     @media (max-width: 480px) {
       .hero-logo-img { max-width: 92vw; }
-      .evening-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr; }
       .hero-cta { padding: 12px 28px 10px; letter-spacing: 0.2em; }
     }
   </style>
@@ -1146,7 +1150,7 @@
     <span class="section-num" aria-hidden="true">04</span>
     <div class="section-inner-wide">
       <p class="section-label reveal-item">The Evening</p>
-      <h2 class="section-heading reveal-item">"A night in eight acts."</h2>
+      <h2 class="section-heading reveal-item">What to expect.</h2>
       <div class="section-rule reveal-item"></div>
 
       <div class="cards-grid">
@@ -1204,41 +1208,7 @@
           <p class="card-desc">Best on-theme, best outfit, fanciest look — with a charismatic MC.</p>
         </div>
 
-        <!-- 6. Tarot Speakeasy -->
-        <div class="event-card reveal-item">
-          <svg class="card-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="9" y="4" width="14" height="20" rx="2" stroke="#1B6B6B" stroke-width="1.5"/>
-            <circle cx="16" cy="14" r="4" stroke="#1B6B6B" stroke-width="1.2"/>
-            <path d="M12 8 L20 8" stroke="#1B6B6B" stroke-width="1" stroke-linecap="round"/>
-            <path d="M12 20 L20 20" stroke="#1B6B6B" stroke-width="1" stroke-linecap="round"/>
-          </svg>
-          <h3 class="card-title c6">Tarot Speakeasy</h3>
-          <p class="card-desc">A hidden lounge with tarot readers and themed cocktails. Worth finding.</p>
-        </div>
-
-        <!-- 7. Art Gallery -->
-        <div class="event-card reveal-item">
-          <svg class="card-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="4" y="6" width="24" height="18" rx="1.5" stroke="#6B1B4A" stroke-width="1.5"/>
-            <circle cx="12" cy="13" r="3" stroke="#6B1B4A" stroke-width="1.2"/>
-            <path d="M8 24 L15 16 L20 20 L24 14" stroke="#6B1B4A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h3 class="card-title c7">Art Gallery</h3>
-          <p class="card-desc">Curated works on display throughout the Conservatory. And possibly for sale.</p>
-        </div>
-
-        <!-- 8. Fashion Sketches -->
-        <div class="event-card reveal-item">
-          <svg class="card-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M6 26 L14 8 Q16 5 18 8 L26 26" stroke="#2B4A1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M16 5 Q18 3 21 5" stroke="#2B4A1B" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M10 20 L22 20" stroke="#2B4A1B" stroke-width="1" stroke-linecap="round"/>
-          </svg>
-          <h3 class="card-title c8">Fashion Sketches</h3>
-          <p class="card-desc">Live artists sketching guests' outfits. Take yours home.</p>
-        </div>
-
-      </div>
+</div>
     </div>
   </section>
 
